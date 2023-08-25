@@ -30,6 +30,9 @@ A single inference would be:
     prooftree.uni[$A => A, B$]
 )
 ```
+<picture>
+<img src="https://github.com/david-davies/typst-prooftree/blob/main/examples/Example1.png" width="30%" />
+</picture>
 
 A more interesting example:
 ```typst
@@ -44,6 +47,9 @@ A more interesting example:
     prooftree.bin[$B => A, B$]
 )
 ```
+<picture>
+<img src="https://github.com/david-davies/typst-prooftree/blob/main/examples/Example2.png" width="40%" />
+</picture>
 
 An n-ary inference can be made:
 ```typst
@@ -59,6 +65,9 @@ An n-ary inference can be made:
     prooftrees.nary(6)[$C$],
 )
 ```
+<picture>
+<img src="https://github.com/david-davies/typst-prooftree/blob/main/examples/Example3.png" width="30%" />
+</picture>
 
 ## Known Issues:
 
