@@ -1,4 +1,4 @@
-#import "../src/prooftree.typ"
+#import "../src/prooftrees.typ"
 #import "../src/internal.typ"
 
 #let vdash = [⊢]
@@ -33,20 +33,20 @@ Here we display some pre-defined structured trees (i.e. they have already been p
 
 
 Here is an axiom:
-#prooftree._show_str_tree(_str_tree1)
+#prooftrees._show_str_tree(_str_tree1)
 Here is tree2:
-#prooftree._show_str_tree(_str_tree2)
+#prooftrees._show_str_tree(_str_tree2)
 
 Here is tree3:
-#prooftree._show_str_tree(_str_tree3)
+#prooftrees._show_str_tree(_str_tree3)
 
 Here is tree4:
-#prooftree._show_str_tree(_str_tree4)
+#prooftrees._show_str_tree(_str_tree4)
 
 Here is tree5:
-#prooftree._show_str_tree(_str_tree5)
+#prooftrees._show_str_tree(_str_tree5)
 Here is tree6:
-#prooftree._show_str_tree(_str_tree6)
+#prooftrees._show_str_tree(_str_tree6)
 
 === Left-shifted Line Bug
 Trying to figure out why the line is sometimes shifted to the left.
@@ -58,7 +58,7 @@ Trying to figure out why the line is sometimes shifted to the left.
 #let lsh_tree_2 = internal._test_mk_str_tree_((lsh_tree_uni_1, lsh_tree_uni_1,lsh_tree_axi_1,lsh_tree_uni_2))[$B => A$]
 
 A first tree:
-#prooftree._show_str_tree(lsh_tree_2)
+#prooftrees._show_str_tree(lsh_tree_2)
 
 
 == Tree Parsing
@@ -66,69 +66,69 @@ Testing from parsing to displaying.
 === Line-by-Line Trees
 The line-by-line style of defining trees.
 ==== Simple
-#let raw_1 = prooftree.axi[$A => A$]
-// #let raw_2 = prooftree.uni[$A => B$]
+#let raw_1 = prooftrees.axi[$A => A$]
+// #let raw_2 = prooftrees.uni[$A => B$]
 First example is the tree `raw_1`.
-#prooftree.tree(raw_1)f
+#prooftrees.tree(raw_1)f
 A second tree will be:
-#prooftree.tree(
-    prooftree.axi[$B => AA$],
-    prooftree.uni[$A => B f f f f f f f f f f f f f f f f f$]
+#prooftrees.tree(
+    prooftrees.axi[$B => AA$],
+    prooftrees.uni[$A => B f f f f f f f f f f f f f f f f f$]
 )
 
 A third
-#prooftree.tree(
-    prooftree.axi(left_label: [e], right_label: [H])[$A => A$],
-    prooftree.uni(left_label: [$(equiv)$], right_label: [H])[$A => B f f f f f $],
-    prooftree.uni[$A => C f$]
+#prooftrees.tree(
+    prooftrees.axi(left_label: [e], right_label: [H])[$A => A$],
+    prooftrees.uni(left_label: [$(equiv)$], right_label: [H])[$A => B f f f f f $],
+    prooftrees.uni[$A => C f$]
 )
 Now for a binary tree:
 
-#prooftree.tree(
-    prooftree.axi[$A => A$],
-        prooftree.axi[$A => A f f g f g f f$],
-        prooftree.uni[$A => B$],
-    prooftree.bin[$A => B$],
+#prooftrees.tree(
+    prooftrees.axi[$A => A$],
+        prooftrees.axi[$A => A f f g f g f f$],
+        prooftrees.uni[$A => B$],
+    prooftrees.bin[$A => B$],
 )
 
 A larger tree:
 
-#prooftree.tree(
-    prooftree.axi[$A => A $],
-        prooftree.axi[$A => A $],
-        prooftree.uni[$B => B$],
-            prooftree.axi[$A => A $],
-                    prooftree.axi[$A => A f f $],
-                    prooftree.uni[$A => B$],
-                prooftree.bin[$A => B$],
-                    prooftree.axi[$A => A f g$],
-                        prooftree.axi[$A => A f g g g g g g g g g g g g$],
-                        prooftree.uni[$A => B$],
-                    prooftree.bin[$A => B C$],
-    prooftree.nary(4)[$A => B$],
+#prooftrees.tree(
+    prooftrees.axi[$A => A $],
+        prooftrees.axi[$A => A $],
+        prooftrees.uni[$B => B$],
+            prooftrees.axi[$A => A $],
+                    prooftrees.axi[$A => A f f $],
+                    prooftrees.uni[$A => B$],
+                prooftrees.bin[$A => B$],
+                    prooftrees.axi[$A => A f g$],
+                        prooftrees.axi[$A => A f g g g g g g g g g g g g$],
+                        prooftrees.uni[$A => B$],
+                    prooftrees.bin[$A => B C$],
+    prooftrees.nary(4)[$A => B$],
 )
 
 Right-heavy tree:
 
-#prooftree.tree(
-    prooftree.axi[$ A => A f g g g g g g g g g g g g $],
-        prooftree.axi[$A => B g g g g g g g g g g g$],
-        prooftree.axi[$A => A f g g g g g g g g g g g g$],
-        prooftree.bin[$ A => A f g g g g g g g g g g g g $],
-    prooftree.bin[$ A => A f g g g g g g g g g g g g $],
-    prooftree.axi[$A => B g g g g g g g g g g g$],
-        prooftree.axi[$A => A f g g g g g g g g g g g g$],
-        prooftree.bin[$ A => A f g g g g g g g g g g g g $],
-    prooftree.bin[$ A => A f g g g g g g g g g g g g $],
+#prooftrees.tree(
+    prooftrees.axi[$ A => A f g g g g g g g g g g g g $],
+        prooftrees.axi[$A => B g g g g g g g g g g g$],
+        prooftrees.axi[$A => A f g g g g g g g g g g g g$],
+        prooftrees.bin[$ A => A f g g g g g g g g g g g g $],
+    prooftrees.bin[$ A => A f g g g g g g g g g g g g $],
+    prooftrees.axi[$A => B g g g g g g g g g g g$],
+        prooftrees.axi[$A => A f g g g g g g g g g g g g$],
+        prooftrees.bin[$ A => A f g g g g g g g g g g g g $],
+    prooftrees.bin[$ A => A f g g g g g g g g g g g g $],
 )
 
 We want an off-centre tree:
-#prooftree.tree(
-    prooftree.axi[$A vdash A$],
-    prooftree.uni[$A vdash A, B$],
-        prooftree.axi[$C vdash C $],
-    prooftree.bin[$A, C vdash A and C, B$],
-    prooftree.uni[$A, C vdash (A and C) or B$]
+#prooftrees.tree(
+    prooftrees.axi[$A vdash A$],
+    prooftrees.uni[$A vdash A, B$],
+        prooftrees.axi[$C vdash C $],
+    prooftrees.bin[$A, C vdash A and C, B$],
+    prooftrees.uni[$A, C vdash (A and C) or B$]
 )
 
 
@@ -138,63 +138,63 @@ Currently, labels are not well-placed and require much user intervention.
 
 === Simple
 A tree with labels.
-#prooftree.tree(
-    prooftree.axi(left_label: [e], right_label: [H])[$A => A$],
-    prooftree.uni(left_label: [$(equiv)$], right_label: [H])[$A => B f f f f f $],
-    prooftree.uni[$A => C f$]
+#prooftrees.tree(
+    prooftrees.axi(left_label: [e], right_label: [H])[$A => A$],
+    prooftrees.uni(left_label: [$(equiv)$], right_label: [H])[$A => B f f f f f $],
+    prooftrees.uni[$A => C f$]
 )
 
 == Spot-check Examples
 
 === Wide premises
 Larger premise-of-premise than conclusion.
-#prooftree.tree(
-    prooftree.axi[$A A A A A A A A A A A A A A A$],
-    prooftree.uni[$A$],
-    prooftree.uni[$B => A$]
+#prooftrees.tree(
+    prooftrees.axi[$A A A A A A A A A A A A A A A$],
+    prooftrees.uni[$A$],
+    prooftrees.uni[$B => A$]
 )
 
 Larger premise-of-left-premise than conclusion.
-#prooftree.tree(
-    prooftree.axi[$A A A A A A A A A A A A A A A$],
-    prooftree.uni[$A$],
-    prooftree.axi[$A A A A A A A A A$],
-    prooftree.bin[$B => A$]
+#prooftrees.tree(
+    prooftrees.axi[$A A A A A A A A A A A A A A A$],
+    prooftrees.uni[$A$],
+    prooftrees.axi[$A A A A A A A A A$],
+    prooftrees.bin[$B => A$]
 )
 
 
 === Custom Lines
-#prooftree.tree(
-    prooftree.axi[$A A A A A A A A A A A A A A A$],
-    prooftree.uni(line_config: (stroke: (dash: "dashed")))[$A$],
-    prooftree.axi[$A A A A A A A A A$],
-    prooftree.bin(line_config: (stroke: 2.5pt + blue, overhang_l: 20pt))[$B => A$]
+#prooftrees.tree(
+    prooftrees.axi[$A A A A A A A A A A A A A A A$],
+    prooftrees.uni(line_config: (stroke: (dash: "dashed")))[$A$],
+    prooftrees.axi[$A A A A A A A A A$],
+    prooftrees.bin(line_config: (stroke: 2.5pt + blue, overhang_l: 20pt))[$B => A$]
 )
 
 == From the README
 First:
-#prooftree.tree(
-    prooftree.axi[$A => A$],
-    prooftree.uni[$A => A, B$]
+#prooftrees.tree(
+    prooftrees.axi[$A => A$],
+    prooftrees.uni[$A => A, B$]
 )
 
 Second:
-#prooftree.tree(
-    prooftree.axi[$B => B$],
-    prooftree.uni[$B => B, A$],
-    prooftree.uni[$B => A, B$],
-        prooftree.axi[$A => A$],
-        prooftree.uni[$A => A, B$],
-    prooftree.bin[$B => A, B$]
+#prooftrees.tree(
+    prooftrees.axi[$B => B$],
+    prooftrees.uni[$B => B, A$],
+    prooftrees.uni[$B => A, B$],
+        prooftrees.axi[$A => A$],
+        prooftrees.uni[$A => A, B$],
+    prooftrees.bin[$B => A, B$]
 )
 
 N-ary:
-#prooftree.tree(
-    prooftree.axi[$P_1$],
-    prooftree.axi[$P_2$],
-    prooftree.axi[$P_3$],
-    prooftree.axi[$P_4$],
-    prooftree.axi[$P_5$],
-    prooftree.axi[$P_6$],
-    prooftree.nary(6)[$C$],
+#prooftrees.tree(
+    prooftrees.axi[$P_1$],
+    prooftrees.axi[$P_2$],
+    prooftrees.axi[$P_3$],
+    prooftrees.axi[$P_4$],
+    prooftrees.axi[$P_5$],
+    prooftrees.axi[$P_6$],
+    prooftrees.nary(6)[$C$],
 )
