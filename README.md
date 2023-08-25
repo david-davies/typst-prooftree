@@ -15,7 +15,7 @@ Features:
 ## Usage
 
 The user interface is inspired by [bussproof](https://ctan.org/pkg/bussproofs)'s; a tree is constructed by a sequence of 'lines' that state their number of premises.
-`src/prooftrees.typ` contains the documentation and the main functions needed.
+[`src/prooftrees.typ`](src/prooftrees.typ) contains the documentation and the main functions needed.
 
 The code for some example trees can be seen in `examples/prooftree_test.typ`.
 
@@ -49,14 +49,14 @@ An n-ary inference can be made:
 ```typst
 #import "@preview/prooftrees:0.1.0"
 
-#prooftree.tree(
-    prooftree.axi[$P_1$],
-    prooftree.axi[$P_2$],
-    prooftree.axi[$P_3$],
-    prooftree.axi[$P_4$],
-    prooftree.axi[$P_5$],
-    prooftree.axi[$P_6$],
-    prooftree.nary(6)[$C$]
+#prooftrees.tree(
+    prooftrees.axi(pad(bottom: 2pt, [$P_1$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_2$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_3$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_4$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_5$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_6$])),
+    prooftrees.nary(6)[$C$],
 )
 ```
 

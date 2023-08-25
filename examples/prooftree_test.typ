@@ -190,11 +190,11 @@ Second:
 
 N-ary:
 #prooftrees.tree(
-    prooftrees.axi[$P_1$],
-    prooftrees.axi[$P_2$],
-    prooftrees.axi[$P_3$],
-    prooftrees.axi[$P_4$],
-    prooftrees.axi[$P_5$],
-    prooftrees.axi[$P_6$],
+    prooftrees.axi(pad(bottom: 2pt, [$P_1$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_2$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_3$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_4$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_5$])),
+    prooftrees.axi(pad(bottom: 2pt, [$P_6$])),
     prooftrees.nary(6)[$C$],
 )
