@@ -1,3 +1,8 @@
+# DEPRECATED
+You should use [curryst](https://github.com/pauladam94/curryst) -- a much better package that is actually maintained.
+
+---
+# Old Description
 # Prooftrees
 
 This package is for constructing proof trees in the style of natural deduction or the sequent calculus, for `typst` `0.7.0`. Please do open issues for bugs etc :)
